@@ -1,0 +1,14 @@
+Beginner (Easy)
+
+1.Print your name and age using console.log().
+2.Create a variable for your college name and log it.
+3.Store three numbers and print their sum.
+4.Create a variable isLoggedIn and print whether user is logged in or not.
+5.Declare a variable without assigning a value and print it.
+
+Medium
+6. Create an object called student with properties name, age, and branch.
+7. Create an array of 5 favorite foods and print the third one.
+8. Use typeof operator to print data types of different variables.
+9. Use let and const properly: reassign let but not const.
+10. Combine two strings using the + operator.

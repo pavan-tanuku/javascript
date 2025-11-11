@@ -1,0 +1,81 @@
+Day - 1 Note's. 
+
+let numberInt = 10;                         o/p: number
+let numberFloat = 10.0;                     o/p: number
+let string = 'oye';                         o/p: string
+let char = 'A';                             o/p: string
+let isTrue = true;                          o/p: boolean
+const arr = ['abc', 1, '10.5', 9];          o/p: object
+const obj = {                               o/p: object
+    name: 'Hey',
+    type: 'object'
+};
+let container;                              o/p: undefined
+let hasValue = null;                        o/p: object
+let greet = function () {                   o/p: function
+    return "Hello!";
+}
+
+let notANumber = NaN;                       o/p: number
+let symbol = Symbol('xyz');                 o/p: symbol
+
+
+⚙️ Concept: Hoisting in JavaScript.
+When JavaScript code runs, the JS engine does two passes:
+Memory creation phase → where variables and functions are registered.
+Execution phase → where actual code runs.
+
+During the memory phase:
+Variables declared with var are hoisted and initialized as undefined.
+Variables declared with let or const are hoisted too (yes!) but are placed in a 
+Temporal Dead Zone (TDZ) — meaning they exist, but can’t be used until the line of declaration is reached.
+
+
+🧩 Example 1 — Using var before declaration
+console.log(a); 
+var a = 10;
+✅ Output:
+undefined
+👉 Why? Because var a was hoisted to the top and initialized with undefined before assignment.
+
+
+🧩 Example 2 — Using let before declaration
+console.log(b); 
+let b = 20;
+❌ Output:
+ReferenceError: Cannot access 'b' before initialization
+👉 b is hoisted but is in the Temporal Dead Zone — JS protects it from being accessed before initialization.
+
+
+🧩 Example 3 — Using const before declaration
+console.log(c);
+const c = 30;
+❌ Output:
+ReferenceError: Cannot access 'c' before initialization
+👉 Same reason as let, but const also must be initialized when declared.
+
+
+🧩 Snippet 3
+var z = 100;
+function test() {
+  console.log(z);
+  var z = 200;
+  console.log(z);
+}
+test();
+
+❌ Your answer: 100 and 200
+✅ Actual Output:
+undefined
+200
+
+🧠 Why?
+Inside the test() function, a new local variable z is declared with var z.
+This shadows the global z.
+That local z is hoisted to the top of the function and initialized with undefined.
+So the steps are:
+Local z hoisted → undefined
+console.log(z) → prints undefined
+z = 200
+console.log(z) → prints 200
+💡 The global z = 100 is ignored inside the function because the local one takes precedence.
